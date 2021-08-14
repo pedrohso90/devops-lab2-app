@@ -9,7 +9,7 @@ def pagina_inicial():
 @app.route("/soma")
 def soma_valores():
     x=10+10
-    return "Sua soma de 10+10="+x
+    return "Sua soma de 10+10="+str(x)
 
 if __name__ == '__main__':
     app.run(debug=True)
