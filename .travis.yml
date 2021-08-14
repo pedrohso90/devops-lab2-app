@@ -24,7 +24,7 @@ deploy:
 
 # Deploy no GCP
   provider: gae
-  keyfile: ../eng-archery-321513-7c2e742265ec.json.enc
+  keyfile: eng-archery-321513-7c2e742265ec.json.enc
   project: eng-archery-321513
   on:
       branch: main
