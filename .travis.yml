@@ -13,22 +13,23 @@ install:
 script:
   - python -m unittest -v test
 
-# Definir o Deploy no Heroku
-deploy:
-        #provider: heroku
-        #api_key: $HEROKU_API_KEY
-        #edge: true 
-        #app: devopslab-pedroh
-        #on:
-        #branch: main
-
-# Deploy no GCP
-  provider: gae
-  keyfile: eng-archery-321513-7c2e742265ec.json.enc
-  project: eng-archery-321513
-  on:
-      branch: main
-  before_install:
+before_install:
   - openssl aes-256-cbc -K $encrypted_facb2d9ff794_key -iv $encrypted_facb2d9ff794_iv
     -in eng-archery-321513-7c2e742265ec.json.enc -out eng-archery-321513-7c2e742265ec.json
     -d
+
+# Definir o Deploy no Heroku
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  edge: true 
+  app: devopslab-pedroh
+  on:
+      branch: main
+
+# Deploy no GCP
+  provider: gae
+  keyfile: eng-archery-321513-7c2e742265ec.json
+  project: eng-archery-321513
+  on:
+      branch: main
