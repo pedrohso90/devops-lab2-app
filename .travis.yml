@@ -20,16 +20,16 @@ before_install:
 
 # Definir o Deploy no Heroku
 deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-pedroh
-  on:
-      branch: main
+  - provider: heroku
+    api_key: $HEROKU_API_KEY
+    edge: true 
+    app: devopslab-pedroh
+    on:
+        branch: main
 
 # Deploy no GCP
-  provider: gae
-  keyfile: ../eng-archery-321513-7c2e742265ec.json
-  project: eng-archery-321513
-  on:
-      branch: main
+  - provider: gae
+    keyfile: ../eng-archery-321513-7c2e742265ec.json
+    project: eng-archery-321513
+    on:
+        branch: main
