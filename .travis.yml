@@ -15,12 +15,12 @@ script:
 
 # Definir o Deploy no Heroku
 deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  edge: true 
-  app: devopslab-pedroh
-  on:
-      branch: main
+        #provider: heroku
+        #api_key: $HEROKU_API_KEY
+        #edge: true 
+        #app: devopslab-pedroh
+        #on:
+        #branch: main
 
 # Deploy no GCP
   provider: gae
