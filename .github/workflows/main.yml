@@ -1,4 +1,4 @@
-name: Deploy
+name: Pipeline GitHub Actions
 
 on:
   push:
@@ -6,14 +6,24 @@ on:
       - main
 
 jobs:
-  build:
+  cicd:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7.9]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "devopslab-2-pedroh"
-          heroku_email: "pedrohso90@gmail.com"
-          procfile: "web: gunicorn app:app"
+          python-version: ${{ matrix.python-version }}
+
+      # - uses: akhileshns/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_app_name: "devopslab-2-pedroh"
+      #     heroku_email: "pedrohso90@gmail.com"
+      #     procfile: "web: gunicorn app:app"
 
