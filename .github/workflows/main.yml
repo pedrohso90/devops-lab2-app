@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7.9]
+        python-version: [3.8]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,10 +28,11 @@ jobs:
         run: |
           python -m unittest -v test
 
-      # - uses: akhileshns/heroku-deploy@v3.12.12
-      #   with:
-      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #     heroku_app_name: "devopslab-2-pedroh"
-      #     heroku_email: "pedrohso90@gmail.com"
-      #     procfile: "web: gunicorn app:app"
+      - name: Deploy
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "devopslab-2-pedroh"
+          heroku_email: "pedrohso90@gmail.com"
+          procfile: "web: gunicorn app:app"
 
