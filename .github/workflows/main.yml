@@ -32,7 +32,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "devops-lab-2-app-pedroh"
+          heroku_app_name: "devops-lab2-app-pedroh"
           heroku_email: "pedrohso90@gmail.com"
           procfile: "web: gunicorn app:app"
 
