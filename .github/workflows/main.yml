@@ -45,7 +45,3 @@ jobs:
           credentials: ${{ secrets.GCP_KEY }}
           promote: false
           version: v1
-
-      - name: Test URL 
-      - id: test
-        run: curl ${{ steps.deploy.outputs.url }}
